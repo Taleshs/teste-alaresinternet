@@ -1,9 +1,9 @@
 // backend/index.js
-require('dotenv').config({ path: './.env'});
+require("dotenv").config({ path: "./.env" });
 
-const cors = require('cors');
-const express = require('express');
-const connectDB = require('./connectDB');
+const cors = require("cors");
+const express = require("express");
+const connectDB = require("./connectDB");
 
 const app = express();
 const PORT = process.env.PORT || 8000;
@@ -14,15 +14,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Importando as rotas das tarefas
-const tasksRouter = require('./routes/tasks');
-const pedidosRouter = require('./routes/pedidos');
-const planosRouter = require('./routes/planos');
+const pedidosRouter = require("./routes/pedidos");
+const planosRouter = require("./routes/planos");
 
-
-app.use('/api/tasks', tasksRouter);
-app.use('/api/pedidos', pedidosRouter);
-app.use('/api/planos', planosRouter);
-
+app.use("/api/pedidos", pedidosRouter);
+app.use("/api/planos", planosRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on Port: ${PORT}`);
