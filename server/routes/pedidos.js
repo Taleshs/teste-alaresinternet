@@ -1,7 +1,7 @@
 // backend/routes/pedidos.js
 const express = require("express");
 const router = express.Router();
-const Pedido = require("../models/Pedido");
+const Pedido = require("../models/Pedidos");
 const Plano = require("../models/Planos");
 
 // Get All Pedidos
