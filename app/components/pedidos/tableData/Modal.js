@@ -61,7 +61,7 @@ const Modal = ({ isOpen, onRequestClose, pedido, onPedidoUpdated }) => {
     }
 
     if (!isUpdated) {
-      onRequestClose(); // Não há campos atualizados, então fecha o modal sem enviar requisição
+      onRequestClose();
       return;
     }
 
@@ -75,10 +75,9 @@ const Modal = ({ isOpen, onRequestClose, pedido, onPedidoUpdated }) => {
         updatedPedidoData
       );
 
-      // Chama a função de callback para atualizar a tabela
       onPedidoUpdated();
 
-      onRequestClose(); // Fecha o modal após a atualização bem-sucedida
+      onRequestClose();
     } catch (error) {
       console.error("Erro ao atualizar pedido:", error);
     }
@@ -86,15 +85,12 @@ const Modal = ({ isOpen, onRequestClose, pedido, onPedidoUpdated }) => {
 
   const handleArquivar = async () => {
     try {
-      // Faz a requisição PUT para arquivar o pedido
       await axios.put(`http://localhost:8000/api/pedidos/${pedido._id}`, {
         status: "ARCHIVE",
       });
 
-      // Chama a função de callback para atualizar a tabela
       onPedidoUpdated();
-
-      onRequestClose(); // Fecha o modal após o arquivamento bem-sucedido
+      onRequestClose();
     } catch (error) {
       console.error("Erro ao arquivar pedido:", error);
     }

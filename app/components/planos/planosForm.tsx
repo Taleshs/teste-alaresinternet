@@ -40,8 +40,6 @@ const planosForm = () => {
         funcionalidades,
       };
       await axios.post("http://localhost:8000/api/planos", data);
-      // Lógica para mostrar mensagem de sucesso ou redirecionar para a página de listagem de planos
-      console.log("Plano adicionado com sucesso!");
       setSuccessMessage("Plano adicionado com sucesso!");
       setPlanoData(initialState);
     } catch (error) {
